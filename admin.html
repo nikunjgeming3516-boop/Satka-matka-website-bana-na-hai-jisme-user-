@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><title>Admin - Royal Matka</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="admin-layout">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <div style="padding: 15px; text-align: center; border-bottom: 1px solid var(--border);">
+        <h2 class="royal-text">👑 ADMIN</h2>
+      </div>
+      <a class="active" onclick="showSection('dashboard', this)">📊 Dashboard</a>
+      <a onclick="showSection('complaints', this)" style="color: var(--red); font-weight: bold;">🚨 Deposit Complaints</a>
+      <a onclick="showSection('users', this)">👥 User Management</a>
+      <a onclick="showSection('markets', this)">🎯 Market Management</a>
+      <a onclick="showSection('settings', this)">⚙️ Settings</a>
+    </div>
+
+    <!-- Content -->
+    <div class="admin-content">
+      <h1 id="pageTitle" style="margin-bottom: 20px;">Dashboard</h1>
+      
+      <!-- Dashboard -->
+      <div id="dashboard" class="page-section active">
+        <div class="card">
+          <h2>Welcome, Super Admin</h2>
+          <p style="color: var(--text-muted); margin-top: 10px;">System is running smoothly. API connected.</p>
+        </div>
+      </div>
+
+      <!-- Complaints (Main Feature) -->
+      <div id="complaints" class="page-section">
+        <div class="card">
+          <h2>Pending Deposits</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr><th>User</th><th>Amount</th><th>UTR</th><th>Proof</th><th>Status</th><th>Action</th></tr>
+              </thead>
+              <tbody id="adminComplaintsBody">
+                <!-- JS loads here -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Users (Dummy) -->
+      <div id="users" class="page-section">
+        <div class="card"><h2>User Management</h2><p>List of users goes here.</p></div>
+      </div>
+      
+      <!-- Markets (Dummy) -->
+      <div id="markets" class="page-section">
+        <div class="card"><h2>Market Management</h2><p>List of markets goes here.</p></div>
+      </div>
+
+      <!-- Settings (Dummy) -->
+      <div id="settings" class="page-section">
+        <div class="card"><h2>General Settings</h2><p>API Key, Name, Logo Settings go here.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/auth.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>

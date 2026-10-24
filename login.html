@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><title>Login - Royal Matka</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="container" style="max-width: 400px; margin-top: 80px;">
+    <h2 class="royal-text" style="text-align: center; margin-bottom: 20px;">Welcome Back</h2>
+    <div class="card">
+      <form onsubmit="loginUser(event)">
+        <div class="input-group">
+          <label>Username</label>
+          <input type="text" id="loginUser" class="input-field" required>
+        </div>
+        <div class="input-group">
+          <label>Password</label>
+          <input type="password" id="loginPass" class="input-field" required>
+        </div>
+        <button type="submit" class="btn btn-gold btn-full">Sign In</button>
+      </form>
+      <p style="text-align: center; margin-top: 15px; font-size: 13px; color: var(--text-muted);">
+        New here? <a href="register.html" style="color: var(--gold);">Register</a><br><br>
+        <i>Admin Demo: user: admin, pass: admin</i>
+      </p>
+    </div>
+  </div>
+  <script src="js/auth.js"></script>
+</body>
+</html>

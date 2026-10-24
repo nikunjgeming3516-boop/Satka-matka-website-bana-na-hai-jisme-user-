@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><title>Dashboard - Royal Matka</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-brand">👑 ROYAL MATKA</div>
+    <div class="nav-links">
+      <a href="dashboard.html" class="active">Dashboard</a>
+      <a href="history.html">History</a>
+      <a href="profile.html">Profile</a>
+      <a href="#" onclick="logout()" style="color: var(--red);">Logout</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="card" style="background: linear-gradient(135deg, #141414, #2a2a2a); border-color: var(--gold);">
+      <p style="color: var(--text-muted); font-size: 12px; text-transform: uppercase;">Available Balance</p>
+      <h2 style="font-size: 36px; color: #fff; margin: 10px 0;">₹ <span id="userBalance">0</span></h2>
+      <button class="btn btn-gold" onclick="startDeposit()">+ Add Money</button>
+    </div>
+
+    <h3 style="margin-bottom: 15px; margin-top: 30px;">🔥 Live Markets</h3>
+    <div class="card">
+      <div style="display: flex; justify-content: space-between; align-items: center;">
+        <div>
+          <h4 style="color: #fff;">Kalyan Market</h4>
+          <p style="font-size: 12px; color: var(--text-muted);">03:45 PM - 05:45 PM</p>
+        </div>
+        <span class="badge badge-success">OPEN</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Deposit Modal -->
+  <div class="modal-overlay" id="depositModal">
+    <div class="modal-box">
+      <span class="modal-close" onclick="closeDeposit()">✕</span>
+      
+      <!-- Stage 1 -->
+      <div id="depositStage1">
+        <h3 style="margin-bottom: 15px; color: var(--gold);">Deposit Funds</h3>
+        <div class="input-group">
+          <label>Enter Amount (Min ₹100)</label>
+          <input type="number" id="depAmount" class="input-field" value="100">
+        </div>
+        <button class="btn btn-gold btn-full" onclick="generateQR()">Generate QR</button>
+      </div>
+
+      <!-- Stage 2: QR & Timer -->
+      <div id="depositStage2" style="display: none; text-align: center;">
+        <h3 style="margin-bottom: 10px;">Scan & Pay</h3>
+        <h2 style="color: var(--green); margin-bottom: 10px;" id="qrAmountDisplay">₹0</h2>
+        <div style="background: #fff; padding: 10px; border-radius: 8px; width: 180px; height: 180px; margin: 0 auto 15px;">
+          <img src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=upi://pay?pa=paytm.s4fcxmz@pty" style="width: 100%;">
+        </div>
+        <div id="timerDisplay" style="font-size: 18px; font-weight: bold; color: var(--gold);">Waiting... 10s</div>
+      </div>
+
+      <!-- Stage 3: Complaint Form -->
+      <div id="complaintStage" style="display: none;">
+        <div style="background: rgba(230, 57, 70, 0.1); border: 1px solid var(--red); padding: 10px; border-radius: 6px; font-size: 12px; margin-bottom: 15px;">
+          ⚠️ Payment not credited? Submit proof below.
+        </div>
+        <div class="input-group">
+          <label>UTR / Transaction ID</label>
+          <input type="text" id="compUTR" class="input-field">
+        </div>
+        <div class="input-group">
+          <label>Screenshot</label>
+          <input type="file" id="compScreenshot" class="input-field" accept="image/*">
+        </div>
+        <button class="btn btn-red btn-full" onclick="submitComplaint()">Submit Complaint</button>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="js/auth.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
